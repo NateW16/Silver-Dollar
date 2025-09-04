@@ -68,7 +68,7 @@ public class TextCoinStrip {
 	public String toString() { 
 		//TODO: fill this
 		String textRep = "";
-		for(int i = 0; i < theStrip.size() - 1; i++){
+		for(int i = 0; i < theStrip.size(); i++){
 			if(theStrip.get(i)){
 				textRep = textRep + "o";
 			} else{
