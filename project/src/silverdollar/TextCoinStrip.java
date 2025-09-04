@@ -21,6 +21,7 @@ public class TextCoinStrip {
 	protected ArrayList<Boolean> theStrip; 
 
 	//TODO: Potentially add instance variables if needed?
+	private int coins;
 
 	/** 
 	 * Constructs a representation of the Silver Dollar Game 
@@ -44,6 +45,7 @@ public class TextCoinStrip {
 		} 
 
 		//TODO: should we store the number of coins?
+		this.coins = coins;
 
 		//place #coins randomly on the strip
 		Random rand = new Random (); 
@@ -121,7 +123,12 @@ public class TextCoinStrip {
 	 * @return true if there are no more moves 
 	 */ 
 	public boolean gameIsOver() { 
-		return false;	// TODO: replace this with real code
+		for(int i = 0; i < coins; i++){
+			if(!theStrip.get(i)){
+				return false;
+			}
+		}
+		return true;
 	} 
 
 	/** 
