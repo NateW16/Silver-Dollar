@@ -67,7 +67,9 @@ public class TextCoinStrip {
 	 */ 
 	public String toString() { 
 		//TODO: fill this
+		// create variable to hold text representation of game
 		String textRep = "";
+		// for loop that iterates through theStrip and adds character aligning with boolean value to text representation
 		for(int i = 0; i < theStrip.size(); i++){
 			if(theStrip.get(i)){
 				textRep = textRep + "o";
@@ -86,12 +88,16 @@ public class TextCoinStrip {
 	 * @return true if the move is legal 
 	 */ 
 	public boolean isLegalMove(int start, int distance) {
+		// check if the index of the start value is greater than the greatest index value in theStrip or less than 0
 		if(start < 0 || start > theStrip.size() - 1){
 			return false;
+		// check if the corresponding value in the strip is true (has a coin)
 		} else if(!theStrip.get(start)){
 			return false;
+		// check is the starting value is greater than the distance traveled (can't move a coin before first index value)
 		} else if(start - distance < 0){
 			return false;
+		// check if there is a coin in between the start position and the final position (can't jump coins or have 2 coins on one spot)
 		} else {
 			for(int i = start; i > start - distance; i--){
 				if(theStrip.get(i - 1)){
@@ -111,6 +117,7 @@ public class TextCoinStrip {
 	 */ 
 	public void makeMove(int start, int distance) { 
 		//TODO: implement this method
+		// change start spot to false and new spot to true
 		if(isLegalMove(start, distance)){
 			theStrip.set(start, false);
 			theStrip.set(start - distance, true);
@@ -123,6 +130,7 @@ public class TextCoinStrip {
 	 * @return true if there are no more moves 
 	 */ 
 	public boolean gameIsOver() { 
+		// check if for n coins the first n number of values of theStrip are true
 		for(int i = 0; i < coins; i++){
 			if(!theStrip.get(i)){
 				return false;
