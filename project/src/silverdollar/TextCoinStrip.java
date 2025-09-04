@@ -87,7 +87,15 @@ public class TextCoinStrip {
 	 * @return true if the move is legal 
 	 */ 
 	public boolean isLegalMove(int start, int distance) {
+		if(start < 0 || start > theStrip.size() - 1){
+			return false;
+		} else if(!theStrip.get(start)){
+			return false;
+		} else if(start - distance < 0){
+			return false;
+		} else {
 		return false;	// TODO: replace this with real code
+		}
 	} 
 
 	/** 
@@ -99,7 +107,10 @@ public class TextCoinStrip {
 	 */ 
 	public void makeMove(int start, int distance) { 
 		//TODO: implement this method
-
+		if(isLegalMove(start, distance)){
+			theStrip.set(start, false);
+			theStrip.set(start - distance, true);
+		}
 	} 
 
 	/** 
